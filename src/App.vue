@@ -74,7 +74,6 @@ export default defineComponent({
 
         const installPWA = (): void => {
             if ('serviceWorker' in navigator) {
-                alert('Install PWA');
                 navigator.serviceWorker.ready.then((registration) => {
                     registration.showNotification('Install PWA', {
                         body: 'Install PWA',
@@ -88,8 +87,6 @@ export default defineComponent({
                         ],
                     });
                 });
-            } else {
-                alert('No service worker');
             }
         };
 
