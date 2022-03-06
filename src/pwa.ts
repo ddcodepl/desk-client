@@ -1,13 +1,10 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import 'virtual:windi.css';
 // @ts-ignore
 import { registerSW } from 'virtual:pwa-register';
 
 registerSW({
-    name: 'Desk Upp',
-    short_name: 'Desk Upp',
-    description: 'Control your desk with this app',
+    name: 'WebP Cloud',
+    short_name: 'WebPCloud',
+    description: 'WebP Cloud allows to convert all your images like JPG, PNG, JPEG, HEIC or GIF to webp or PDF and save a lot of space without losing quality.',
     theme_color: '#24126a',
     background_color: '#24126a',
     display: 'standalone',
@@ -33,8 +30,4 @@ registerSW({
         },
     ],
 });
-
-
-
-createApp(App).mount('#app');
 

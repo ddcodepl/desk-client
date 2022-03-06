@@ -72,6 +72,28 @@ export default defineComponent({
         const height = ref(0);
         const isHeightEqual= ref(true);
 
+        const installPWA = (): void => {
+            if ('serviceWorker' in navigator) {
+                alert('Install PWA');
+                navigator.serviceWorker.ready.then((registration) => {
+                    registration.showNotification('Install PWA', {
+                        body: 'Install PWA',
+                        icon: '/assets/pwa/icon-512x512.png',
+                        vibrate: [200, 100, 200, 100, 200, 100, 200],
+                        tag: 'install-pwa',
+                        badge: '/assets/pwa/icon-512x512.png',
+                        actions: [
+                            { action: 'confirm', title: 'Install', icon: '/assets/pwa/icon-512x512.png' },
+                            { action: 'cancel', title: 'Cancel', icon: '/assets/pwa/icon-512x512.png' },
+                        ],
+                    });
+                });
+            } else {
+                alert('No service worker');
+            }
+        };
+
+
         const config = ref({
             minHeight: 72,
             maxHeight: 115
@@ -131,6 +153,7 @@ export default defineComponent({
 
         onMounted(async () => {
             await getHeight();
+            installPWA()
         });
 
         watch(height, async () => {
@@ -159,7 +182,6 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    //background: #34495e;
     background: linear-gradient(to bottom, #2980b9 0%, #2c3e50 100%);
 }
 </style>

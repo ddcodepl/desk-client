@@ -17,7 +17,6 @@ export default defineConfig({
             manifest: {
                 name: 'Desk Upp',
                 short_name: 'Desk Upp',
-                // eslint-disable-next-line max-len
                 description: 'Control your desk with this app',
                 theme_color: '#24126a',
                 background_color: '#24126a',
