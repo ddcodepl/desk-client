@@ -10,7 +10,6 @@
                 </h1>
 
                 <h3 class="text-center font-thin text-2xl uppercase text-white">Current height</h3>
-
             </div>
 
             <div class="buttons flex flex-col w-75 mx-auto my-10">
@@ -64,17 +63,18 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, ref} from 'vue';
+import {computed, defineComponent, onMounted, ref, watch} from 'vue';
 
 export default defineComponent({
     name: 'App',
     setup() {
         const currentHeight = ref(0);
         const height = ref(0);
+        const isHeightEqual= ref(true);
 
         const config = ref({
             minHeight: 72,
-            maxHeight: 120
+            maxHeight: 115
         });
 
         const increment = () => {
@@ -121,6 +121,8 @@ export default defineComponent({
                 })
             }).then(res => res.json())
                 .then(res => {
+                    currentHeight.value = height.value;
+                    isHeightEqual.value = true;
                     console.log(res)
                 }).catch(err => {
                     console.log(err)
@@ -131,9 +133,10 @@ export default defineComponent({
             await getHeight();
         });
 
-        const isHeightEqual = computed(() => {
-            return height.value === currentHeight.value;
+        watch(height, async () => {
+            isHeightEqual.value = height.value === currentHeight.value;
         });
+
 
         return {
             height,
