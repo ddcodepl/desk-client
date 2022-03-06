@@ -1,5 +1,5 @@
 <template>
-    <div class="container h-screen bg-dark-purple w-full flex justify-center align-center">
+    <div class="container h-screen w-full flex justify-center align-center">
         <div
             class="flex flex-col justify-center align-center w-full"
         >
@@ -15,28 +15,28 @@
             <div class="buttons flex flex-col w-75 mx-auto my-10">
                 <div class="plus-minus-buttons my-20">
                     <button
-                        class="bg-success btn-lg w-full mb-5 py-2"
+                        class="bg-[#2ecc71] btn-lg w-full mb-5 py-2"
                         @click="increment"
                     >
-                        <span class="text-white text-3xl">+</span>
+                        <span class="text-white text-2xl font-thin">Up</span>
                     </button>
                     <button
-                        class="bg-error btn-lg w-full mb-5 py-2"
+                        class="bg-[#e74c3c] btn-lg w-full mb-5 py-2"
                         @click="decrement"
                     >
-                        <span class="text-white text-3xl">-</span>
+                        <span class="text-white text-2xl font-thin">Down</span>
                     </button>
                 </div>
 
                 <div class="confirmation" v-if="!isHeightEqual">
                     <button
-                        class="bg-warning btn-lg w-full mb-5 py-2"
+                        class="bg-[#27ae60] btn-lg w-full mb-5 py-2"
                         @click="submit"
                     >
                         <span class="text-white font-thin text-2xl">Confirm</span>
                     </button>
                     <button
-                        class="bg-error btn-lg w-full py-2"
+                        class="bg-[#f1c40f] btn-lg w-full py-2"
                         @click="resetHeight"
                     >
                         <span class="text-white font-thin text-2xl">Reset</span>
@@ -45,13 +45,13 @@
 
                 <div class="default-setup" v-else>
                     <button
-                        class="bg-purple btn-lg w-full mb-5 py-2"
+                        class="bg-[#34495e] btn-lg w-full mb-5 py-2"
                         @click="setHeight(110)"
                     >
                         <span class="text-white font-thin text-2xl">Stand up</span>
                     </button>
                     <button
-                        class="bg-light-blue btn-lg w-full py-2"
+                        class="bg-[#95a5a6] btn-lg w-full py-2"
                         @click="setHeight(72)"
                     >
                         <span class="text-white font-thin text-2xl">Sit down</span>
@@ -159,6 +159,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #453ba9;
+    //background: #34495e;
+    background: linear-gradient(to bottom, #2980b9 0%, #2c3e50 100%);
 }
 </style>
